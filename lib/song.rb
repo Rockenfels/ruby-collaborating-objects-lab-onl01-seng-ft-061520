@@ -16,10 +16,9 @@ class Song
   
   def self.new_by_filename(name)
     data = name.slice(0, name.length - 4).split(" - ")
-    song = Song.new(data[0])
+    song = Song.new(data[1])
     song.genre = data[2]
-    song.artist_name(Artist.find_or_create_by_name(data[1]))
-    return song
+    song.artist_name(data[0])
   end
   
   def artist_name(name)
