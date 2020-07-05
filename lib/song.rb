@@ -18,8 +18,7 @@ class Song
     data = name.slice(0, name.length - 4).split(" - ")
     song = Song.new(data[0])
     song.genre = data[2]
-    artist = Artist.find_or_create_by_name(data[1])
-    artist.add_song(song)
+    song.artist_name(Artist.find_or_create_by_name(data[1]))
     return song
   end
   
