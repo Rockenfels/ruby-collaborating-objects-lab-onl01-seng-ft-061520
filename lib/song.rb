@@ -16,9 +16,9 @@ class Song
   def self.new_by_filename(name)
     data = name.slice(0, name.length - 4).split(" - ")
     song = Song.new(data[1])
+    song.genre = data[2]
     artist = Artist.find_or_create_by_name(data[0])
     artist.add_song(song)
-    
   end
   
   def artist_name(name)
