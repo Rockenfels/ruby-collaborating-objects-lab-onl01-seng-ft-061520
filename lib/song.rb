@@ -20,7 +20,7 @@ class Song
     song.genre = data[2]
     artist = Artist.find_or_create_by_name(data[1])
     artist.add_song(song)
-    song
+    return song
   end
   
   def artist_name(name)
